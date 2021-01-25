@@ -1,36 +1,52 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Montague - Paper or Plastic?</title>
     <meta name="description" content="Is the recycling pickup for plastic or paper this week in Montague, MA?  Get your answer here." >
-    <meta name="google-site-verification" content="96Won4KIhJYX2fWT92xZuPrJ2LNqmPkgTW6sIPF6seI" />
     <meta name="viewport" content="width=device-width">
-    
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <style>
+     body, html {
+       font-family: sans-serif;
+       height: 98vh;
+       display: grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: 1fr auto;
+       grid-template-areas:
+         'main'
+         'footer';
+     }
+     main {
+       margin: auto;
+       grid-area: main;
+     }
+     h1 {
+       font-size: 400%;
+     }
+     footer {
+       grid-area: footer;
+       display: flex;
+       font-size: 0.8em;
+       justify-content: space-between;
+     }
+    </style>
   </head>
   <body>
     <?php include "lib.php"; ?>
-    <div id="container">
-      <div id="body">
-        <h1><?php echo paper_or_plastic(); ?></h1>
+    <main>
+      <h1><?php echo paper_or_plastic(); ?></h1>
+    </main>
+    <footer>
+	    <div class="details">
+        <p>week of <b><?php echo firstDayOfWeek(); ?></b> - <b><?php echo paper_or_plastic(); ?></b></p>
+        <p>week of
+          <b><?php echo firstDayOfWeek(to_datetime(next_week_date())); ?></b> - 
+          <b><?php echo paper_or_plastic(next_week_date()); ?></b></p>
       </div>
-      
-      <div id="footer">
-	      <div class="details">
-          <p>week of <b><?php echo firstDayOfWeek(); ?></b> - <b><?php echo paper_or_plastic(); ?></b></p>
-          <p>week of
-            <b><?php echo firstDayOfWeek(to_datetime(next_week_date())); ?></b> - 
-            <b><?php echo paper_or_plastic(next_week_date()); ?></b></p>
-        </div>
-        <div class="about">
-	        built by <a href="http://muffinlabs.com/">muffinlabs</a>
-          (<a href="http://muffinlabs.com/paper-or-plastic">details</a>)
-        </div>
+      <div class="about">
+	      built by <a href="http://muffinlabs.com/">muffinlabs</a>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
 

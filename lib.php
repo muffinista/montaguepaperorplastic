@@ -37,7 +37,6 @@ function paper_or_plastic($date="") {
   $plastic = 1;
 
   // dec 30th 2013 is a paper week
-  //  $base = new DateTime('2013-12-30 00:00:00');
   // date math isn't inclusive so go one more day back
   $base = new DateTime('2013-12-29 00:00:00');
   
@@ -45,7 +44,6 @@ function paper_or_plastic($date="") {
   $monday = new DateTime("@" . $present);
   
   $interval  = $base->diff($monday);
-  //$days_elapsed = $interval->format('%d days');
   $days_elapsed = $interval->days;
   $weeks = floor(abs($days_elapsed / 7));
   
@@ -55,6 +53,5 @@ function paper_or_plastic($date="") {
   else {
     return "Paper";
   }
-
 }
 ?>
