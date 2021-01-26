@@ -29,6 +29,13 @@
        font-size: 0.8em;
        justify-content: space-between;
      }
+     footer > * {
+       align-self: end;
+     }
+     p {
+       margin-bottom: 0px;
+     }
+     
     </style>
   </head>
   <body>
